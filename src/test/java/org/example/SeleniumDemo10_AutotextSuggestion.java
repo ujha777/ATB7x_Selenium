@@ -35,21 +35,21 @@ public class SeleniumDemo10_AutotextSuggestion {
         WebElement ele = driver.findElement(By.xpath("//label[@for='fromCity']"));
         actions.moveToElement(ele).click().build().perform();
 
-//        List<WebElement> cities = driver.findElements(By.xpath("//ul[@role='listbox']/li/div/div/div/div/div/p"));
-//
-//        for (WebElement fromcity : cities) {
-//
-//            if (fromcity.getText().contains("Mumbai, India")) {
-//                System.out.println(fromcity.getText());
-//                // Handle stale element with wait
-//                WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
-//
-//                wait1.ignoring(StaleElementReferenceException.class)
-//                        .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//p[contains(text(),'Mumbai, India')]")));
-//                fromcity.click();
-//            }
-//        }
-       By locator = By.xpath("//p[contains(text(),'Mumbai, India')]");
+        try {
+            List<WebElement> cities = driver.findElements(By.xpath("//ul[@role='listbox']/li/div/div/div/div/div/p"));
+
+
+            for (WebElement fromcity : cities) {
+                if (fromcity.getText().contains("Mumbai, India")) {
+                    fromcity.click();
+                }
+            }
+        } catch (StaleElementReferenceException e) {
+            e.getMessage();
+        }
+
+
+    /*   By locator = By.xpath("//p[contains(text(),'Mumbai, India')]");
         WebElement element = driver.findElement(By.xpath("//p[contains(text(),'Mumbai, India')]"));
 
                 // Handle stale element with wait
@@ -63,7 +63,7 @@ public class SeleniumDemo10_AutotextSuggestion {
                     System.out.println("FromCity --->"+element.getText());
                     element.click();
 
-                }
+                }*/
 
         }
 
