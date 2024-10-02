@@ -4,8 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.locators.RelativeLocator;
 
 import static org.openqa.selenium.support.locators.RelativeLocator.with;
+
 
 public class SeleniumDemo17_RelativeLocator {
     public static void main(String[] args) {
@@ -28,7 +30,7 @@ public class SeleniumDemo17_RelativeLocator {
         submit.click();
 
         WebElement parent_element = driver.findElement(By.xpath("//input[@id='username']"));
-        WebElement error = driver.findElement(RelativeLocator.with(By.tagName("small")).near(parent_element));
+        WebElement error = driver.findElement(with(By.tagName("small")).near(parent_element));
         System.out.println(error.getText());
 
     }

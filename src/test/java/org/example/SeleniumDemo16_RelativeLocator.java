@@ -14,7 +14,7 @@ public class SeleniumDemo16_RelativeLocator {
         driver.get("https://awesomeqa.com/practice.html");
         driver.manage().window().maximize();
         WebElement e = driver.findElement(By.xpath("//span[normalize-space()='Years of Experience']"));
-        driver.findElement(RelativeLocator.with(By.id("exp-3")).toRightOf(e)).click();
+        driver.findElement(with(By.id("exp-3")).toRightOf(e)).click();
 
     }
 }
