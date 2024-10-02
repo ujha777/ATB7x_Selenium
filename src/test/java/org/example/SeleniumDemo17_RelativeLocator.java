@@ -1,0 +1,35 @@
+package org.example;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import static org.openqa.selenium.support.locators.RelativeLocator.with;
+
+public class SeleniumDemo17_RelativeLocator {
+    public static void main(String[] args) {
+        WebDriver driver = new ChromeDriver();
+        // Open a webpage
+        driver.get("https://codepen.io/AbdullahSajjad/full/LYGVRgK");
+        driver.manage().window().maximize();
+
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        driver.switchTo().frame("result");
+
+        WebElement submit = driver.findElement(By.xpath("//form[@id=\"form\"]/button"));
+
+        submit.click();
+
+        WebElement parent_element = driver.findElement(By.xpath("//input[@id='username']"));
+        WebElement error = driver.findElement(RelativeLocator.with(By.tagName("small")).near(parent_element));
+        System.out.println(error.getText());
+
+    }
+}
