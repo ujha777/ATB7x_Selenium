@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="D:/Selenium_Automation_ATB7x">
+        <classes><class name="org.example.SeleniumDemo2">
+            <methods><include name="TC1_Login_invalid_pwd_valid_un"/>
+                <include name="TC6_Login_valid_pwd_valid_un"/>
+            </methods></class>
+        </classes>
+    </test>
+</suite>
