@@ -144,7 +144,7 @@ public class SeleniumDemo2 {
         button.click();
         Thread.sleep(10000);
         String gettitle = driver.getTitle();
-        String expectedTitle = "VWO Setup";
+        String expectedTitle = "Dashboard";
 
 
         Assert.assertEquals(gettitle,expectedTitle);
